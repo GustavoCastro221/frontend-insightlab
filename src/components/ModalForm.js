@@ -19,12 +19,17 @@ const ModalForm = ({ isOpen, onRequestClose, onSave, fornecedor }) => {
                 nome: ''
             });
         }
-    }, [fornecedor, isOpen]);
+    }, [fornecedor]);
 
     const handleChange = (e) => {
+        const { name, value } = e.target;
+        if (name === "cnpj" && !/^\d*$/.test(value)) {
+            // If the input is not numeric, return early
+            return;
+        }
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [name]: value
         });
     };
 
@@ -43,8 +48,18 @@ const ModalForm = ({ isOpen, onRequestClose, onSave, fornecedor }) => {
         >
             <h2>{fornecedor ? 'Editar Fornecedor' : 'Adicionar Fornecedor'}</h2>
             <form onSubmit={handleSubmit} className="modal-form">
-
-            <div className="form-group">
+                <div className="form-group">
+                    <label>CNPJ:</label>
+                    <input
+                        type="text"
+                        name="cnpj"
+                        value={formData.cnpj}
+                        onChange={handleChange}
+                        pattern="\d*"
+                        required
+                    />
+                </div>
+                <div className="form-group">
                     <label>Nome:</label>
                     <input
                         type="text"
@@ -54,17 +69,6 @@ const ModalForm = ({ isOpen, onRequestClose, onSave, fornecedor }) => {
                         required
                     />
                 </div>
-                <div className="form-group">
-                    <label>CNPJ:</label>
-                    <input
-                        type="text"
-                        name="cnpj"
-                        value={formData.cnpj}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-                
                 <div className="form-buttons">
                     <button type="submit">Salvar</button>
                     <button type="button" onClick={onRequestClose}>Cancelar</button>
@@ -75,3 +79,4 @@ const ModalForm = ({ isOpen, onRequestClose, onSave, fornecedor }) => {
 };
 
 export default ModalForm;
+
