@@ -104,12 +104,12 @@
 }
 
 .modal-form .form-buttons button[type="submit"],
-.form-buttons .delete-button {
+.form-buttons .confirm-button {
     background-color: #4CAF50;
     color: white;
 }
 
-.modal-form .form-buttons button[type="button"] {
+.modal-form .form-buttons button[type="button"], .cancel-button{
     background-color: #f44336;
     color: white;
 }

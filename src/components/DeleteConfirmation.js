@@ -15,8 +15,8 @@ const DeleteConfirmation = ({ isOpen, onRequestClose, onConfirm }) => {
             <h2>Confirmar Exclusão</h2>
             <p>Tem certeza de que deseja excluir este fornecedor?</p>
             <div className="form-buttons">
-                <button onClick={onConfirm} className="delete-button">Excluir</button>
-                <button onClick={onRequestClose}>Cancelar</button>
+            <button className="cancel-button" onClick={onRequestClose}>Cancelar</button>
+            <button className="confirm-button" onClick={onConfirm} >Excluir</button>
             </div>
             </form>
         </Modal>

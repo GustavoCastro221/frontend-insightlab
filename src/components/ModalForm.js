@@ -69,8 +69,8 @@ const ModalForm = ({ isOpen, onRequestClose, onSave, fornecedor }) => {
                     />
                 </div>
                 <div className="form-buttons">
-                    <button type="submit">Salvar</button>
                     <button type="button" onClick={onRequestClose}>Cancelar</button>
+                    <button type="submit">Salvar</button>
                 </div>
             </form>
         </Modal>

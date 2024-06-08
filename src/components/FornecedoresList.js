@@ -29,7 +29,7 @@ const FornecedoresList = () => {
     const handleSave = (fornecedor) => {
         if (currentFornecedor) {
             
-            axios.put(currentFornecedor._links.self.href, fornecedor)
+            axios.patch(currentFornecedor._links.self.href, fornecedor)
                 .then(() => {
                     fetchFornecedores();
                     setCurrentFornecedor(null);
