@@ -1,5 +1,8 @@
 import React from 'react';
-import ListaFornecedores from '../src/components/ListaFornecedores';
+import ListaFornecedores from './components/FornecedoresList';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root');
 
 const App = () => {
     return (
