@@ -24,7 +24,6 @@ const ModalForm = ({ isOpen, onRequestClose, onSave, fornecedor }) => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         if (name === "cnpj" && !/^\d*$/.test(value)) {
-            // If the input is not numeric, return early
             return;
         }
         setFormData({
@@ -49,7 +48,7 @@ const ModalForm = ({ isOpen, onRequestClose, onSave, fornecedor }) => {
             <h2>{fornecedor ? 'Editar Fornecedor' : 'Adicionar Fornecedor'}</h2>
             <form onSubmit={handleSubmit} className="modal-form">
                 <div className="form-group">
-                    <label>CNPJ:</label>
+                    <label htmlFor="nome">CNPJ:</label>
                     <input
                         type="text"
                         name="cnpj"
@@ -60,7 +59,7 @@ const ModalForm = ({ isOpen, onRequestClose, onSave, fornecedor }) => {
                     />
                 </div>
                 <div className="form-group">
-                    <label>Nome:</label>
+                    <label htmlFor="nome">Nome:</label>
                     <input
                         type="text"
                         name="nome"

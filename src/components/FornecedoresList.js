@@ -28,16 +28,15 @@ const FornecedoresList = () => {
 
     const handleSave = (fornecedor) => {
         if (currentFornecedor) {
-            // Update existing fornecedor
+            
             axios.put(currentFornecedor._links.self.href, fornecedor)
                 .then(() => {
-                    fetchFornecedores(); // Refresh list after update
+                    fetchFornecedores();
                     setCurrentFornecedor(null);
                 });
         } else {
-            // Add new fornecedor
             axios.post('http://localhost:8080/fornecedores', fornecedor)
-                .then(() => fetchFornecedores()); // Refresh list after add
+                .then(() => fetchFornecedores());
         }
         setIsModalOpen(false);
     };
@@ -45,7 +44,7 @@ const FornecedoresList = () => {
     const handleDelete = () => {
         axios.delete(currentFornecedor._links.self.href)
             .then(() => {
-                fetchFornecedores(); // Refresh list after delete
+                fetchFornecedores();
                 setCurrentFornecedor(null);
                 setIsDeleteModalOpen(false);
             });
