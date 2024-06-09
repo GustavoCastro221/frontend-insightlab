@@ -19,7 +19,7 @@ const ModalForm = ({ isOpen, onRequestClose, onSave, fornecedor }) => {
                 nome: ''
             });
         }
-    }, [fornecedor]);
+    }, [fornecedor, isOpen]);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -55,6 +55,7 @@ const ModalForm = ({ isOpen, onRequestClose, onSave, fornecedor }) => {
                         value={formData.cnpj}
                         onChange={handleChange}
                         pattern="\d*"
+                        maxLength="14" 
                         required
                     />
                 </div>
